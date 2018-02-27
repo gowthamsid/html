@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<title>
+AngularJs with Multiple Controllers Example
+</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/018373E1-1FED-6B4F-99DD-CD9A0FC97C35/main.js" charset="UTF-8"></script><script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('angularctrlapp', [],function ($scope,$rootScope));
+app.controller('angularctrl1', function ($scope,$rootScope) {
+$scope.user_name = "";
+$scope.password = "";
+$scope.value = function () {
+if($scope.user_name=="aishu" && $scope.password="123")
+$window.alert("logged in success");
+return true;
+else
+return false;
+};
+});
+</script>
+</head>
+<body ng-app="angularctrlapp">
+<h2>AngularJS Multiple Controllers Example</h2>
+<b>First Controller</b><br /><br />
+<div ng-controller="angularctrl1">
+User Name: <input type="text" ng-model="user_name"><br />
+Password:  <input type="text" ng-model="password"><br />
+<input type="submit" ng-submit="value()">
+</div><br />
+</body>
+</html>

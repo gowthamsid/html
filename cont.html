@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="C:\MEAN STACK/angular.min.js">
+  </script>
+</head>
+<body ng-app="testApp">
+<h1>AngularJS Scope Multiple Controllers.</h1>
+    <div ng-controller="sakController">
+      	Controller Name: {{controllerName}}<br/>
+        Message: {{message}}<br/>
+        <span ng-bind="message"></span> <br/>
+        <input type="text" ng-model="message"/> 
+    </div>
+  	<div ng-controller="arvindController">
+      	Controller Name: {{controllerName}}<br/>
+        Message: {{message}}<br/>
+        <span ng-bind="message"></span> <br/>
+        <input type="text" ng-model="message"/> 
+    </div>
+    <script>
+        var ngApp = angular.module('testApp', []);
+ 
+        ngApp.controller('sakController', function ($scope) {
+          	$scope.controllerName = "jaiController"; 
+            $scope.message = "Hello Jai!";        
+        });
+ 
+       ngApp.controller('arvindController', function ($scope) {
+         	$scope.controllerName = "vivekController";
+            $scope.message = "Hello Vivek!";        
+        });
+    </script>
+</body>
+</html>

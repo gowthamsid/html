@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/018373E1-1FED-6B4F-99DD-CD9A0FC97C35/main.js" charset="UTF-8"></script><script src="angular.min.js"></script>
+<script>
+angular.module('firstdrive',[]).controller('firstController',function($scope,$rootScope){
+     $scope.login=true;
+     $rootScope.home=false;
+	 $scope.authenticate=function(){
+	   if($scope.firstName=="1" && $scope.lastName=="2"){
+	     $scope.login=false;
+         $rootScope.home=true;
+	     $rootScope.message="Welcome Home";
+	   }else{
+	   $scope.login=true;
+       $rootScope.home=false;
+	   $scope.message1="invalid user";
+	   }
+	 }
+
+}).controller('secondController',function($scope){
+});
+</script>
+</head>
+
+<body ng-app='firstdrive'>
+  <div ng-controller="firstController" ng-show="login">
+    <label>Set the first name: <input type="text" ng-model="firstName"/></label>
+	<br/>
+	<br/>
+    <label>Set the last name: <input type="text" ng-model="lastName"/></label>
+	<br/>
+	{{message1}}
+	<br/><br/>
+<input type="submit" ng-click="authenticate()">
+  </div>
+  <div ng-controller="secondController" ng-show="home">
+ {{message}}
+ <br/>
+ <br/>
+ <button  ng-click="logOut()">Sign out</button>
+  </div>
+</body>
+</html>

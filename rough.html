@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu</title>
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/018373E1-1FED-6B4F-99DD-CD9A0FC97C35/main.js" charset="UTF-8"></script><script src="angular.min.js"></script>
+        <script>
+        angular.module('Myapp',[]).
+        service('Menuitems',function(){
+           this.item=[ {"food":"IDLY","price" : "30"},
+                 {"food":"CHAPPATHI", "price" : "60"},
+                 {"food":"DOSA" , "price":"65"},
+                 {"food":"BRIYANI","price" : "120"}];
+    
+        }).controller('one',function($scope,Menuitems){
+             $scope.items=Menuitems.item;
+                     });
+                 
+        </script>
+    </head>
+    <body>
+        <div ng-app="Myapp" ng-controller="one">
+           <ul ng-repeat="item in items">
+             {{item.food}}:{{item.price}}
+           </ul> 
+             
+        </div>
+    </body>
+</html>
